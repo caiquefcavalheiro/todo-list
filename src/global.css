@@ -19,6 +19,11 @@
   box-sizing: border-box;
 }
 
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 1px var(--color-purple);
+}
+
 body {
   font-family: "Inter", sans-serif;
   background: var(--color-gray-600);

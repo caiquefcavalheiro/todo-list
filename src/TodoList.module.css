@@ -1,0 +1,60 @@
+.mainContainer {
+  width: 736px;
+  margin: 0 auto;
+}
+
+.taskInfo {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin: 4rem auto 0 auto;
+}
+
+.taskCreate {
+  color: var(--color-blue);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.taskCompleted {
+  color: var(--color-purple);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.taskCreate span,
+.taskCompleted span {
+  font-size: 0.75rem;
+  border: 0.5rem solid var(--color-gray-400);
+  border-radius: 999px;
+  color: var(--color-gray-100);
+  background: var(--color-gray-400);
+}
+
+.emptyList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  border-top: 1px solid var(--color-gray-400);
+  min-height: 15.25rem;
+}
+
+.emptyList svg {
+  color: var(--color-gray-400);
+}
+
+.emptyList strong {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  color: var(--color-gray-300);
+}
+
+.emptyList p {
+  color: var(--color-gray-300);
+}

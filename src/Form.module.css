@@ -1,0 +1,49 @@
+.listForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -1.6875rem;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.listForm input {
+  font-size: 1rem;
+  line-height: 1.4;
+  background: var(--color-gray-500);
+  border-radius: 8px;
+  color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-700);
+  padding: 1rem;
+  border: none;
+}
+
+.listForm button {
+  display: flex;
+  align-items: center;
+  place-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--color-blue-dark);
+  border-radius: 8px;
+  border: none;
+
+  color: var(--color-gray-100);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.listForm button:hover {
+  background-color: var(--color-blue);
+}
+
+@media (min-width: 768px) {
+  .listForm {
+    flex-direction: row;
+  }
+  .listForm input {
+    width: 38.4375rem;
+  }
+}
