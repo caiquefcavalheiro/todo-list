@@ -5,14 +5,17 @@ import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
 interface FormProps {
   addTask: (task: Task) => void;
+  tasks: Task[];
 }
 
-export function Form({ addTask }: FormProps) {
+export function Form({ addTask, tasks }: FormProps) {
   const [content, setContent] = useState("");
+
+  const getLastTaskId = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1;
 
   const handleSubmitTask = (event: FormEvent) => {
     event.preventDefault();
-    addTask({ content, isCompleted: false });
+    addTask({ id: getLastTaskId, content, isCompleted: false });
     setContent("");
   };
 

@@ -2,8 +2,10 @@ import { ClipboardText, Trash } from "@phosphor-icons/react";
 import styles from "./TodoList.module.css";
 import { Form } from "./Form";
 import { useState } from "react";
+import { ListItem } from "./ListItem";
 
 export interface Task {
+  id: number;
   content: string;
   isCompleted: boolean;
 }
@@ -20,24 +22,23 @@ export function TodoList() {
   };
 
   const handleRemoveTask = (excludeTask: Task) => {
-    const taskFilterOne = tasks.filter(
-      (task) => task.content === excludeTask.content
-    );
+    const taskFilterOne = tasks.filter((task) => task.id !== excludeTask.id);
     setTasks(taskFilterOne);
   };
 
   const handleCompleteOrIncomplete = (changeTask: Task) => {
     changeTask.isCompleted = !changeTask.isCompleted;
-    const taskExcludeOne = tasks.filter(
-      (task) => task.content !== changeTask.content
-    );
+    const taskExcludeOne = tasks.filter((task) => task.id !== changeTask.id);
     taskExcludeOne.push(changeTask);
+    taskExcludeOne.sort((task1, task2) =>
+      task1.id < task2.id ? -1 : task1.id > task2.id ? 1 : 0
+    );
     setTasks(taskExcludeOne);
   };
 
   return (
     <>
-      <Form addTask={addTask} />
+      <Form addTask={addTask} tasks={tasks} />
       <main className={styles.mainContainer}>
         <section className={styles.taskInfo}>
           <strong className={styles.taskCreate}>
@@ -48,55 +49,26 @@ export function TodoList() {
           </strong>
         </section>
         <section>
-          <div className={styles.emptyList}>
-            <ClipboardText size={54} />
-            <strong>Você ainda não tem tarefas cadastradas</strong>
-            <p>Crie tarefas e organize seus itens a fazer</p>
-          </div>
-          <div className={styles.contentList}>
-            <article className={styles.listItem}>
-              {true ? (
-                <span className={styles.check} />
-              ) : (
-                <span className={styles.circle} />
-              )}
-              <p className={false ? styles.checked : styles.unchecked}>
-                Integer urna interdum massa libero auctor neque turpis turpis
-                semper. Duis vel sed fames integer.
-              </p>
-              <button>
-                <Trash size={20} />
-              </button>
-            </article>
-            <article className={styles.listItem}>
-              {true ? (
-                <span className={styles.check} />
-              ) : (
-                <span className={styles.circle} />
-              )}
-              <p className={true ? styles.checked : styles.unchecked}>
-                Integer urna interdum massa libero auctor neque turpis turpis
-                semper. Duis vel sed fames integer.
-              </p>
-              <button>
-                <Trash size={20} />
-              </button>
-            </article>
-            <article className={styles.listItem}>
-              {false ? (
-                <span className={styles.check} />
-              ) : (
-                <span className={styles.circle} />
-              )}
-              <p className={true ? styles.checked : styles.unchecked}>
-                Integer urna interdum massa libero auctor neque turpis turpis
-                semper. Duis vel sed fames integer.
-              </p>
-              <button>
-                <Trash size={20} />
-              </button>
-            </article>
-          </div>
+          {tasks.length === 0 ? (
+            <div className={styles.emptyList}>
+              <ClipboardText size={54} />
+              <strong>Você ainda não tem tarefas cadastradas</strong>
+              <p>Crie tarefas e organize seus itens a fazer</p>
+            </div>
+          ) : (
+            <div className={styles.contentList}>
+              {tasks.map((task) => {
+                return (
+                  <ListItem
+                    key={task.id}
+                    task={task}
+                    handleCompleteOrIncomplete={handleCompleteOrIncomplete}
+                    handleRemoveTask={handleRemoveTask}
+                  />
+                );
+              })}
+            </div>
+          )}
         </section>
       </main>
     </>

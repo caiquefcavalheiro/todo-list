@@ -14,6 +14,7 @@ export function ListItem({
   task,
 }: ListeItemProps) {
   const { isCompleted, content } = task;
+
   return (
     <article className={styles.listItem}>
       {isCompleted ? (
