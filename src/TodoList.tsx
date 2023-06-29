@@ -1,4 +1,4 @@
-import { Check, Circle, ClipboardText, Trash } from "@phosphor-icons/react";
+import { ClipboardText, Trash } from "@phosphor-icons/react";
 import styles from "./TodoList.module.css";
 
 export function TodoList() {
@@ -19,40 +19,46 @@ export function TodoList() {
           <p>Crie tarefas e organize seus itens a fazer</p>
         </div>
         <div className={styles.contentList}>
-          <article>
-            <div>
-              <Check />
-            </div>
+          <article className={styles.listItem}>
+            {true ? (
+              <span className={styles.check} />
+            ) : (
+              <span className={styles.circle} />
+            )}
             <p>
               Integer urna interdum massa libero auctor neque turpis turpis
               semper. Duis vel sed fames integer.
             </p>
             <button>
-              <Trash />
+              <Trash size={20} />
             </button>
           </article>
-          <article>
-            <div>
-              <Check />
-            </div>
+          <article className={styles.listItem}>
+            {true ? (
+              <span className={styles.check} />
+            ) : (
+              <span className={styles.circle} />
+            )}
             <p>
               Integer urna interdum massa libero auctor neque turpis turpis
               semper. Duis vel sed fames integer.
             </p>
             <button>
-              <Trash />
+              <Trash size={20} />
             </button>
           </article>
-          <article>
-            <div>
-              <Circle />
-            </div>
+          <article className={styles.listItem}>
+            {false ? (
+              <span className={styles.check} />
+            ) : (
+              <span className={styles.circle} />
+            )}
             <p>
               Integer urna interdum massa libero auctor neque turpis turpis
               semper. Duis vel sed fames integer.
             </p>
             <button>
-              <Trash />
+              <Trash size={20} />
             </button>
           </article>
         </div>

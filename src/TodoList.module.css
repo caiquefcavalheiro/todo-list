@@ -1,6 +1,7 @@
 .mainContainer {
-  width: 736px;
+  max-width: 736px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .taskInfo {
@@ -57,4 +58,72 @@
 
 .emptyList p {
   color: var(--color-gray-300);
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: var(--color-gray-500);
+  border: 1px solid var(--color-gray-400);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.contentList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.listItem p {
+  color: var(--color-gray-100);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.listItem button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 8px;
+  color: var(--color-gray-300);
+}
+
+.listItem button:hover {
+  background: var(--color-gray-400);
+  color: var(--color-danger);
+}
+
+.check {
+  height: 24px;
+  width: 36px;
+  background-color: transparent;
+  background-image: url(/src/assets/check.svg);
+  object-fit: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.check:hover {
+  background-image: url("./assets/check_hover.svg");
+}
+
+.circle {
+  height: 24px;
+  width: 36px;
+  background-color: transparent;
+  background-image: url(/src/assets/circle.svg);
+  object-fit: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.circle:hover {
+  background-image: url(/src/assets/circle_hover.svg);
 }
