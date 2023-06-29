@@ -11,8 +11,11 @@ export interface Task {
 export function TodoList() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  const taskCompleted = tasks.filter((task) => task.isCompleted);
+  const concludeText =
+    tasks.length > 0 ? `${taskCompleted.length} de ${tasks.length}` : 0;
+
   const addTask = (newTask: Task) => {
-    console.log(newTask);
     setTasks((state) => [...state, newTask]);
   };
 
@@ -38,10 +41,10 @@ export function TodoList() {
       <main className={styles.mainContainer}>
         <section className={styles.taskInfo}>
           <strong className={styles.taskCreate}>
-            Tarefas criadas <span>5</span>
+            Tarefas criadas <span>{tasks.length}</span>
           </strong>
           <strong className={styles.taskCompleted}>
-            Concluídas <span>2 de 5</span>
+            Concluídas <span>{concludeText}</span>
           </strong>
         </section>
         <section>
