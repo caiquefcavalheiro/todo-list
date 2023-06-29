@@ -1,4 +1,4 @@
-import { ClipboardText, Trash } from "@phosphor-icons/react";
+import { ClipboardText } from "@phosphor-icons/react";
 import styles from "./TodoList.module.css";
 import { Form } from "./Form";
 import { useState } from "react";
