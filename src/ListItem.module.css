@@ -33,6 +33,7 @@
   padding: 0.25rem;
   border-radius: 8px;
   color: var(--color-gray-300);
+  cursor: pointer;
 }
 
 .listItem button:hover {
@@ -49,6 +50,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  cursor: pointer;
 }
 
 .check:hover {
@@ -64,6 +66,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  cursor: pointer;
 }
 
 .circle:hover {
